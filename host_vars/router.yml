@@ -1,0 +1,8 @@
+firewall_masquerade_interfaces:
+  - "eth0"
+firewall_allowed_tcp_ports:
+  - "22"
+firewall_whitelist:
+  - 192.168.0.0/16
+  - 10.0.0.0/8
+  - 172.16.0.0/12

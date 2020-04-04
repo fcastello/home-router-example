@@ -1,0 +1,10 @@
+- name: configure vm(s)
+  hosts: "router"
+  gather_facts: yes
+  become: yes
+
+  tasks:
+    - name: "Run Firewall"
+      import_role:
+        name: fcastello.firewall
+      tags: ["firewall"]
