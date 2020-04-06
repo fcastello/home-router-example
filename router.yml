@@ -8,3 +8,8 @@
       import_role:
         name: fcastello.firewall
       tags: ["firewall"]
+
+    - name: "Run DHCP"
+      import_role:
+        name: fcastello.dhcpd_docker
+      tags: ["dhcp"]

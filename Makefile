@@ -35,7 +35,8 @@ venv:
 dep: pip
 	# Install role dependencies
 	PIP_CONFIG_FILE=./env/pip.conf .env/bin/pip install -r requirements.txt --upgrade
-	ansible-galaxy role install fcastello.firewall
+	source .env/bin/activate && ansible-galaxy role install fcastello.firewall
+	source .env/bin/activate && ansible-galaxy role install fcastello.dhcpd_docker
 
 pip:
 	echo "[global]" > .env/pip.conf
@@ -57,3 +58,7 @@ router:
 # Deploy firewall configuration to router
 firewall:
 	source .env/bin/activate && ansible-playbook router.yml --tags=firewall
+
+# Deploy DHCP configuration to router
+dhcp:
+	source .env/bin/activate && ansible-playbook router.yml --tags=dhcp
